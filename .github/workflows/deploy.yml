@@ -38,6 +38,10 @@ jobs:
           username: pelexach12
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
+            cd /var/www/test-automate  # Замініть на шлях до вашого проекту
+            git pull origin main  # Додано команду git pull
+            npm install
+            npm run build
             pm2 restart cd-test
 
 
