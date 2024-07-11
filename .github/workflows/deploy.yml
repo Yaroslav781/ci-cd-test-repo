@@ -5,7 +5,11 @@ on:
     branches:
       - main  # Запускати workflow тільки при push в гілку main
 
+permissions:
+  contents: read
+  
 jobs:
+
   deploy:
     runs-on: ubuntu-latest  # Використовувати віртуальну машину з Ubuntu
 
