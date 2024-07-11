@@ -39,7 +39,9 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /var/www/test-automate/ci-cd-test-repo # Замініть на шлях до вашого проекту
-            git pull origin main  # Додано команду git pull
+            sudo chown -R root:root /var/www/test-automate/ci-cd-test-repo
+            git pull origin main
+            sudo chown -R pelexach12:pelexach12 /var/www/test-automate/ci-cd-test-repo
             sudo npm install
             sudo npm run build
             pm2 restart cd-test
