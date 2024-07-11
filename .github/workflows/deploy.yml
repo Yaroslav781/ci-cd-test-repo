@@ -39,7 +39,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /var/www/test-automate/ci-cd-test-repo  # Замініть на шлях до вашого проекту
-            sudo git pull origin main  # Додано команду git pull
+            git pull origin main  # Додано команду git pull
             sudo npm install
             sudo npm run build
             pm2 restart cd-test
