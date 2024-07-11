@@ -1,0 +1,30 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches:
+      - main  # Запускати workflow тільки при push в гілку main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # Використовувати віртуальну машину з Ubuntu
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'  # Або інша версія Node.js
+
+      - name: Install dependencies
+        run: sudo npm install
+
+      - name: Build project
+        run: sudo npm run build
+
+      - name: Restart PM2 process
+        run: |
+          pm2 restart cd-test
+
