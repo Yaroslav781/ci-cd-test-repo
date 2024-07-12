@@ -21,16 +21,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'  # Або інша версія Node.js
-
-      - name: Install dependencies
-        run: sudo npm install
-
-      - name: Build project
-        run: sudo npm run build
-
-      - name: Install PM2
-        run: sudo npm install pm2 -g
-
+          
       - name: Restart PM2 process
         uses: appleboy/ssh-action@master
         with:
