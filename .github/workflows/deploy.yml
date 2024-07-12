@@ -14,14 +14,7 @@ jobs:
     runs-on: ubuntu-latest  # Використовувати віртуальну машину з Ubuntu
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'  # Або інша версія Node.js
-          
       - name: Restart PM2 process
         uses: appleboy/ssh-action@master
         with:
